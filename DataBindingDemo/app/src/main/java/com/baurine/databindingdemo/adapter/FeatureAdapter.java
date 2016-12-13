@@ -20,6 +20,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ItemFeat
             "Event",
             "NormalObject",
             "ObservableObject",
+            "ObservableField"
     };
     private Presenter presenter = new Presenter();
 
