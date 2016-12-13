@@ -22,6 +22,13 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.EventActivity">
+            <intent-filter>
+                <action android:name="baurine.databinding.action.event"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

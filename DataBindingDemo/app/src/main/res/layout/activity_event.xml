@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="text"
+            type="String"/>
+
+        <variable
+            name="handler"
+            type="com.baurine.databindingdemo.handler.EventHandler"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <!-- 方法引用 -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:onClick="@{handler::onMethodPreference}"
+            android:text="Method Preference"
+            android:textAllCaps="false"/>
+
+        <!-- 监听绑定，lambda 表达式，空参数 -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:onClick="@{() -> handler.onListenerBinding(context, cb, text)}"
+            android:text="Listener Binding"
+            android:textAllCaps="false"/>
+
+        <!-- 多个参数，参数名任意 -->
+        <CheckBox
+            android:id="@+id/cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onCheckedChanged="@{(cb, isChecked) -> handler.onCheckedChanged(cb, isChecked)}"
+            android:text="@{`text: ` + text}"/>
+
+    </LinearLayout>
+</layout>
