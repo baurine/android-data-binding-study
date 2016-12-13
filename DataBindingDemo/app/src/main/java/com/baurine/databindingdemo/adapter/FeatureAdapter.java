@@ -16,8 +16,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ItemFeat
 
     private static final String ACTION_PRE = "baurine.databinding.action.";
     private static final String[] TYPES = new String[]{
-            "Basic",
-            "ObserverObject"
+            "Combine",
     };
     private Presenter presenter = new Presenter();
 
@@ -29,7 +28,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ItemFeat
     @Override
     public void onBindViewHolder(ItemFeatureViewHolder holder, int position) {
         String type = TYPES[position];
-        String action = (ACTION_PRE + type).toLowerCase();
+        String action = ACTION_PRE + type.toLowerCase();
         holder.setItem(new FeatureItem(type, action));
     }
 

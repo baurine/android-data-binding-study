@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <!-- import -->
+        <import type="com.baurine.databindingdemo.util.MyStringUtil"/>
+
+        <import type="java.util.List"/>
+
+        <import type="java.util.Map"/>
+
+        <!-- alias -->
+        <import
+            alias="AliasUser"
+            type="com.baurine.databindingdemo.model.User"/>
+
+        <variable
+            name="user"
+            type="AliasUser"/>
+
+        <!-- 容器类 -->
+        <!-- List<AliasUser>, '<' 需要转议 -->
+        <variable
+            name="userList"
+            type="List&lt;AliasUser>"/>
+
+        <variable
+            name="stringMap"
+            type="Map&lt;String, String>"/>
+
+        <!-- 直接使用 java.lang.* -->
+        <variable
+            name="text"
+            type="String"/>
+
+        <variable
+            name="num"
+            type="int"/>
+
+        <!-- context -->
+        <import type="com.baurine.databindingdemo.handler.ContextHandler"/>
+
+        <variable
+            name="handler"
+            type="ContextHandler"/>
+
+        <!-- View -->
+        <import type="android.view.View"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:onClick="onClick"
+            android:text="Set Data"/>
+
+        <!-- 使用 "@{}" 语法 -->
+        <!-- 注意，"XXX @{}" 不是正确的语法，"@{}" 必须处于开头 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.firstName}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.lastName}"/>
+
+        <!-- 使用资源 & 默认值 & 静态方法 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/first_name(MyStringUtil.capitalize(user.firstName)), default=firstName}"/>
+
+        <!-- Null 合并运算 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/last_name(user.lastName ?? `Default LastName`), default=lastName}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/full_name(user.fullName), default=firstName_lastName}"/>
+
+        <!-- 内部使用字符串 & 字符拼接 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`Age: ` + String.valueOf(user.age)}"/>
+
+        <!-- 三目运算 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adult"
+            android:textColor="@android:color/holo_red_light"
+            android:visibility="@{user.isAdult ? View.VISIBLE : View.GONE}"/>
+
+        <!-- 容器类 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userList[num].toString()}"/>
+        <!-- 也可以用 @{userList.get(num).toString()}-->
+
+        <!-- 字符常量 & 转义 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stringMap[&quot;2&quot;]}"/>
+        <!-- android:text="@{stringMap[`2`]}" -->
+
+        <!-- java.lang.* -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{text}"/>
+
+        <!-- 复数 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@plurals/sample_plurals(num)}"/>
+
+        <!-- include -->
+        <include
+            layout="@layout/include_user"
+            app:user="@{user}"/>
+
+        <!-- Context -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{handler.loadString(context)}"/>
+    </LinearLayout>
+</layout>

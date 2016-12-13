@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Data Binding Demo</string>
+
+    <string name="first_name">FirstName: %1$s</string>
+    <string name="last_name">LastName: %1$s</string>
+    <string name="full_name">FullName: %1$s</string>
+
+    <!-- https://developer.android.com/guide/topics/resources/string-resource.html?hl=zh-cn -->
+    <!-- 只支持部分语言，中文不支持，在中文下永远返回 other -->
+    <plurals name="sample_plurals">
+        <item quantity="zero">zero</item>
+        <item quantity="one">one</item>
+        <item quantity="other">other</item>
+    </plurals>
+
+    <plurals name="numbers">
+        <item quantity="one">Have an number</item>
+        <item quantity="other">Have %1$d numbers</item>
+    </plurals>
 </resources>

@@ -1,7 +1,7 @@
 package com.baurine.databindingdemo.handler;
 
 import android.content.Context;
-import android.widget.Toast;
+import android.content.Intent;
 
 import com.baurine.databindingdemo.model.FeatureItem;
 
@@ -11,8 +11,8 @@ import com.baurine.databindingdemo.model.FeatureItem;
 
 public class Presenter {
     public void onFeatureClick(Context cxt, FeatureItem item) {
-        // Intent intent = new Intent(item.action);
-        // cxt.startActivity(intent);
-        Toast.makeText(cxt, "Click: " + item.type, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(item.action);
+        cxt.startActivity(intent);
+        // Toast.makeText(cxt, "Click: " + item.type, Toast.LENGTH_SHORT).show();
     }
 }
