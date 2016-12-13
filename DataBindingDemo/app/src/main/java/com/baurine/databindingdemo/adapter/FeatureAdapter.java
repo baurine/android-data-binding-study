@@ -18,7 +18,8 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ItemFeat
     private static final String[] TYPES = new String[]{
             "Combine",
             "Event",
-            "NormalObject"
+            "NormalObject",
+            "ObservableObject",
     };
     private Presenter presenter = new Presenter();
 

@@ -36,6 +36,13 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.ObservableObjectActivity">
+            <intent-filter>
+                <action android:name="baurine.databinding.action.observableobject"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
