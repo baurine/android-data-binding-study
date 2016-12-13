@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.databinding.ObservableMap"/>
+
+        <variable
+            name="userMap"
+            type="ObservableMap&lt;String, String>"/>
+
+        <import type="android.databinding.ObservableList"/>
+
+        <variable
+            name="userList"
+            type="ObservableList&lt;String>"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <!-- 更新数据将同时触发 UI 的更新 -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:onClick="onClick"
+            android:text="Update"
+            android:textAllCaps="false"/>
+
+        <!-- ObservableMap -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text='@{`firstName: ` + userMap["firstName"]}'/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text='@{`lastName: ` + userMap["lastName"]}'/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text='@{`age: ` + userMap["age"]}'/>
+
+        <!-- ObservableList -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text='@{userList[0]}'
+            android:textColor="@android:color/holo_red_dark"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text='@{userList[1]}'
+            android:textColor="@android:color/holo_red_dark"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text='@{userList[2]}'
+            android:textColor="@android:color/holo_red_dark"/>
+    </LinearLayout>
+</layout>

@@ -50,6 +50,13 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.ObservableCollectionActivity">
+            <intent-filter>
+                <action android:name="baurine.databinding.action.observablecollection"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
