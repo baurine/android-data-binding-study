@@ -17,7 +17,8 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ItemFeat
     private static final String ACTION_PRE = "baurine.databinding.action.";
     private static final String[] TYPES = new String[]{
             "Combine",
-            "Event"
+            "Event",
+            "NormalObject"
     };
     private Presenter presenter = new Presenter();
 

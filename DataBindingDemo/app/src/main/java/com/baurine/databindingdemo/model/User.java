@@ -27,6 +27,10 @@ public class User {
         return age;
     }
 
+    public void incAge() {
+        age++;
+    }
+
     public String getFullName() {
         return firstName + "." + lastName;
     }
