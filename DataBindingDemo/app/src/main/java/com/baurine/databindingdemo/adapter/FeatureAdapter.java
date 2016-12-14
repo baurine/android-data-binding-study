@@ -21,7 +21,8 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ItemFeat
             "NormalObject",
             "ObservableObject",
             "ObservableField",
-            "ObservableCollection"
+            "ObservableCollection",
+            "ViewStub",
     };
     private Presenter presenter = new Presenter();
 
