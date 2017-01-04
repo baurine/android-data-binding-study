@@ -9,6 +9,14 @@
             name="user"
             type="com.baurine.databindingdemo.model.User"/>
 
+        <variable
+            name="url"
+            type="String"/>
+
+        <variable
+            name="paddingVertical"
+            type="Integer"/>
+
     </data>
 
     <LinearLayout
@@ -18,10 +26,27 @@
         android:orientation="vertical">
 
         <!-- app:object 是自定义属性，databinding 会自定去 Card 类找 setObject 方法-->
+        <!-- android:paddingLeft 的值既可以既可以按传统方式使用，直接赋予以 dp 为单位的常量值 -->
+        <!-- 也可以按数据绑定 "@{}" 的方式使用，数据绑定框架会自动去调用默认实现的 setPadding 方法 -->
+        <!-- android:paddingLeft="100dp" -->
+        <!-- android:paddingLeft="@{200}" -->
+        <!-- android:paddingLeft="@{paddingVertical}" -->
         <com.baurine.databindingdemo.view.Card
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@{200}"
+            android:paddingVertical="@{paddingVertical}"
             app:object="@{user}"/>
+
+        <!-- app:imageUrl, app:error 的赋值无论是变量还是常量，都必须使用 "@{}" 的形式 -->
+        <!-- 不能直接用  "https://unsplash.it/..." 这种常量形式，编译无法通过 -->
+        <!-- app:imageUrl="https://unsplash.it/200/300/?random"/> wrong!-->
+        <!-- app:imageUrl='@{"https://unsplash.it/200/300/?random"}'/> works!-->
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            app:error="@{@drawable/ic_launcher}"
+            app:imageUrl="@{url}"/>
 
     </LinearLayout>
 </layout>
