@@ -5,7 +5,9 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.baurine.databindingdemo.model.FontFamily;
 import com.bumptech.glide.Glide;
 
 import static android.content.ContentValues.TAG;
@@ -28,5 +30,11 @@ public class BindingUtil {
     public static void loadImage(ImageView imgView, String url, Drawable error) {
         Log.d(TAG, "loadImage: -----------");
         Glide.with(imgView.getContext()).load(url).error(error).into(imgView);
+    }
+
+    // 为 TextView 增加 app:font 属性
+    @BindingAdapter("font")
+    public static void setFont(TextView textView, String fontName) {
+        textView.setTypeface(FontFamily.getInstance().getFont(fontName, textView.getContext()));
     }
 }

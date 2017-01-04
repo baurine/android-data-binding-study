@@ -48,5 +48,16 @@
             app:error="@{@drawable/ic_launcher}"
             app:imageUrl="@{url}"/>
 
+        <!-- 为 TextView 增加 app:font 属性，会调用 BindingUtil.setFont() 方法 -->
+        <!--app:font="@{`zhuanti`}"-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{@string/zhuanti}"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:font='@{"zhuanti"}'/>
+
     </LinearLayout>
 </layout>
