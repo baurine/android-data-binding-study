@@ -23,6 +23,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ItemFeat
             "ObservableField",
             "ObservableCollection",
             "ViewStub",
+            "AttributeSetters"
     };
     private Presenter presenter = new Presenter();
 
@@ -68,6 +69,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ItemFeat
 
         ItemFeatureViewHolder setItem(FeatureItem item) {
             binding.setFeatureItem(item);
+            binding.executePendingBindings();
             return this;
         }
     }

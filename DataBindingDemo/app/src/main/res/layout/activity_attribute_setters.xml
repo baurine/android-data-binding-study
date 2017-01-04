@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.baurine.databindingdemo.model.User"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <!-- app:object 是自定义属性，databinding 会自定去 Card 类找 setObject 方法-->
+        <com.baurine.databindingdemo.view.Card
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:object="@{user}"/>
+
+    </LinearLayout>
+</layout>
