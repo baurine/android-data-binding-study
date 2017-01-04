@@ -1,6 +1,8 @@
 package com.baurine.databindingdemo.util;
 
 import android.databinding.BindingAdapter;
+import android.databinding.BindingConversion;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
@@ -8,11 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baurine.databindingdemo.model.FontFamily;
+import com.baurine.databindingdemo.model.User;
 import com.bumptech.glide.Glide;
 
 import static android.content.ContentValues.TAG;
 
 public class BindingUtil {
+    //////////////////////////////////////////
+    // adapters
+
     // 可以为 android 命名空间编写 adapter
     // 而且这个属性之前可以不存在
     @BindingAdapter("android:paddingVertical")
@@ -36,5 +42,18 @@ public class BindingUtil {
     @BindingAdapter("font")
     public static void setFont(TextView textView, String fontName) {
         textView.setTypeface(FontFamily.getInstance().getFont(fontName, textView.getContext()));
+    }
+
+    //////////////////////////////////////////
+    // conversions
+
+    @BindingConversion
+    public static String convertUserToString(User user) {
+        return user.getFullName();
+    }
+
+    @BindingConversion
+    public static ColorDrawable convertColorToDrawable(int color) {
+        return new ColorDrawable(color);
     }
 }

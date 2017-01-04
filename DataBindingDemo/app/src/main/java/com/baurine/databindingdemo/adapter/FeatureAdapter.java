@@ -23,7 +23,8 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ItemFeat
             "ObservableField",
             "ObservableCollection",
             "ViewStub",
-            "AttributeSetters"
+            "AttributeSetters",
+            "Converter"
     };
     private Presenter presenter = new Presenter();
 

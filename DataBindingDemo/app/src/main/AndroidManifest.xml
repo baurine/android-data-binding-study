@@ -73,6 +73,13 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.ConverterActivity">
+            <intent-filter>
+                <action android:name="baurine.databinding.action.converter"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
