@@ -80,6 +80,13 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.BiDirectionActivity">
+            <intent-filter>
+                <action android:name="baurine.databinding.action.bidirection"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

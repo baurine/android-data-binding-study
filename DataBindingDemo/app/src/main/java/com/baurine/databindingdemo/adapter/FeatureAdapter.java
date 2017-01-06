@@ -24,7 +24,8 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ItemFeat
             "ObservableCollection",
             "ViewStub",
             "AttributeSetters",
-            "Converter"
+            "Converter",
+            "BiDirection"
     };
     private Presenter presenter = new Presenter();
 
