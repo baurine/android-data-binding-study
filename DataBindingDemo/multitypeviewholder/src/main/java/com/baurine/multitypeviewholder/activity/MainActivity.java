@@ -11,8 +11,8 @@ import android.view.View;
 import com.baurine.multitypeviewholder.R;
 import com.baurine.multitypeviewholder.adapter.MultiTypeAdapter;
 import com.baurine.multitypeviewholder.databinding.ActivityMainBinding;
-import com.baurine.multitypeviewholder.model.ImageModel;
-import com.baurine.multitypeviewholder.model.TextModel;
+import com.baurine.multitypeviewholder.item.ImageItem;
+import com.baurine.multitypeviewholder.item.TextItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_add_text:
-                adapter.addData(new TextModel());
+                adapter.addItem(new TextItem(adapter));
                 break;
             case R.id.btn_add_image:
-                adapter.addData(new ImageModel());
+                adapter.addItem(new ImageItem());
                 break;
             default:
                 break;

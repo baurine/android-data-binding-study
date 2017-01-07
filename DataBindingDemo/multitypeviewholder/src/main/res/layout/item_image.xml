@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="data"
-            type="com.baurine.multitypeviewholder.model.ImageModel"/>
+            name="item"
+            type="com.baurine.multitypeviewholder.item.ImageItem"/>
 
     </data>
 
@@ -19,8 +19,9 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:placeholder="@{@drawable/ic_launcher}"
+            android:onClick="@{()->item.onClick(context)}"
             app:error="@{@drawable/ic_launcher}"
-            app:imageUrl="@{data.url}"/>
+            app:imageUrl="@{item.url}"
+            app:placeholder="@{@drawable/ic_launcher}"/>
     </LinearLayout>
 </layout>

@@ -7,14 +7,13 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.baurine.multitypeviewholder.BR;
-import com.baurine.multitypeviewholder.model.MultiTypeBaseModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.DataBoundViewHolder> {
 
-    private List<MultiTypeBaseModel> items = new ArrayList<>();
+    private List<IItemType> items = new ArrayList<>();
 
     @Override
     public DataBoundViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -36,17 +35,29 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.Data
         return items.size();
     }
 
-    public void addData(MultiTypeBaseModel item) {
+    public void addItem(IItemType item) {
         items.add(0, item);
         notifyDataSetChanged();
     }
 
+    // you can inherit MultiTypeAdapter then to implement
+    // more methods, like addItem(index, item), removeItem(),
+    // updateItem()...
+
+    ////////////////////////////////////////////////////////
+    public interface IItemType {
+        // should directly return layout id
+        int getType();
+    }
+
+    ////////////////////////////////////////////////////////
     static class DataBoundViewHolder extends RecyclerView.ViewHolder {
         private ViewDataBinding binding;
 
         static DataBoundViewHolder create(ViewGroup parent, int viewType) {
             ViewDataBinding binding =
-                    DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), viewType, parent, false);
+                    DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
+                            viewType, parent, false);
             return new DataBoundViewHolder(binding);
         }
 
@@ -56,7 +67,7 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.Data
         }
 
         void bindTo(Object obj) {
-            binding.setVariable(BR.data, obj);
+            binding.setVariable(BR.item, obj);
             binding.executePendingBindings();
         }
     }
