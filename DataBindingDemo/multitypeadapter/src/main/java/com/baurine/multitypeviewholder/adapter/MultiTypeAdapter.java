@@ -13,6 +13,7 @@ import java.util.List;
 
 public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.DataBoundViewHolder> {
 
+    // you also can try use ObservableArrayList
     private List<IItemType> items = new ArrayList<>();
 
     @Override
