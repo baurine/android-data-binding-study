@@ -49,6 +49,9 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.Data
     public interface IItemType {
         // should directly return layout id
         int getType();
+
+        // if you want to the variable name in xml configurable, define following method
+        // int getVariableId();
     }
 
     ////////////////////////////////////////////////////////
@@ -71,6 +74,12 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.Data
             binding.setVariable(BR.item, obj);
             binding.executePendingBindings();
         }
+
+        // if you make the variable name in xml configurable, use following `bindTo()` method
+        // void bindTo(IItemType item) {
+        //     binding.setVariable(item.getVariableId(), item);
+        //     binding.executePendingBindings();
+        // }
     }
 
 }
