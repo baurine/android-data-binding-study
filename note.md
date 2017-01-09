@@ -8,9 +8,15 @@
 
 ## 2. 笔记与总结
 
-在使用 ReactNative 完成了两个项目之后，再回过头来看 android 的 data-binding 框架，理解起来就简单多了。我觉得上面参考的三篇文章就足够了。看了 github 上的一些 demo 例子，我觉得 connorlin 的例子代码是写得最好的，用法完整，代码也非常规范，所以我基本就是把他的代码重写了一遍来学习 data-binding。
+在使用 ReactNative 完成了两个项目之后，再回过头来看 android 的 data-binding 框架，理解起来就简单多了。我觉得上面参考的三篇文章就足够了。看了 github 上的一些 demo 例子，我觉得 [connorlin 的例子](https://github.com/ConnorLin/DataBindingDemo)代码是写得最好的，用法完整，代码也非常规范，所以我基本就是把他的代码重写了一遍来学习 data-binding。
 
-基本的用法我就赘述了，上面的参考文章和代码已经都很详细了，我觉得这个框架最强大的两个地方是，可以用极简单地方式实现多类型 viewholder 的 recyclerview adapter，我额外写了一些文章；其二就是 BindingAdpater 注解。
+demo 效果：
+
+![](./screenshot/data_binding_demo.png)
+
+[项目地址](https://github.com/baurine/android-data-binding-study)
+
+基本的用法我就赘述了，上面的参考文章和代码已经都很详细了，我觉得这个框架最强大的两个地方是，可以用极简单地方式实现多类型 viewholder 的 recyclerview adapter，我额外写了[一篇文章](./multi-type-adapter.md)；其二就是 BindingAdpater 注解。
 
 在传统的方式下，如果我们想为一个已存在的 View 额外添加一个自定义属性，首先这是做不到的，其次我们一般会通过继承这个 View 来实现，而且还需要在 attrs.xml 中声明 declare-styleable，一个字，麻烦。而用 BindingAdpater 可以轻易的做到，不需要派生一个新的 View，也不需要声明 declare-styleable。以在 TextView 上扩展一个自定义的 font 属性为例，只需要几行代码即可，如下所示：
 

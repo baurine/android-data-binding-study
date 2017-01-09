@@ -6,6 +6,8 @@
 
 ![](./screenshot/multi_type_adapter.gif)
 
+[完整代码地址](https://github.com/baurine/android-data-binding-study)
+
 adapter 的代码如下：
 
     public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.DataBoundViewHolder> {
