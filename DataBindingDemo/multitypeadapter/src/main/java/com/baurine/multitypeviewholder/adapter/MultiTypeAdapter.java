@@ -13,7 +13,6 @@ import java.util.List;
 
 public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.DataBoundViewHolder> {
 
-    // you also can try use ObservableArrayList
     private List<IItemType> items = new ArrayList<>();
 
     @Override
@@ -36,14 +35,15 @@ public class MultiTypeAdapter extends RecyclerView.Adapter<MultiTypeAdapter.Data
         return items.size();
     }
 
+    ////////////////////////////////////////////////////////
+    // operate items
+    // you can inherit MultiTypeAdapter then to implement more methods,
+    // such as setItems(), addItem(index, item),
+    // removeItem()...
     public void addItem(IItemType item) {
         items.add(0, item);
         notifyDataSetChanged();
     }
-
-    // you can inherit MultiTypeAdapter then to implement
-    // more methods, like addItem(index, item), removeItem(),
-    // updateItem()...
 
     ////////////////////////////////////////////////////////
     public interface IItemType {
