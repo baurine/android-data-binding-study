@@ -256,4 +256,4 @@ That's all。如果你的 adapter 只是用来展示，不需要任何点击事�
 
 ![](./art/multi_type_adapter_2.gif)
 
-另外，我发现很多人在去实现这种通用 adapter 时，都会很纠结 recyclerview 怎么没有 listview 所拥有的 OnItemClickListener，于是硬是要去给这个 adapter 塞一个 OnItemClickListener，我觉得这是没有理解 recyclerview 为什么要去掉它。因为对于一个复杂的 item layout 来说，我需要给这个 item layout 上不同的 view 响应不同的点击事件，如如一个 Feed 流中的 Card，有点赞的按钮，有评论的按钮，OnItemClickListener 就完全不够用了，如果你确实只想要 OnItemClickListener 的效果，你就只给最外层的 View 加上点击事件不就行了吗，跟 item layout 上任意一个 view 添加点击事件是没有区别的，OnItemClickListener 没有完全单独存在的必要。
+另外，我发现很多人在去实现这种通用 adapter 时，都会很纠结 recyclerview 怎么没有 listview 所拥有的 OnItemClickListener，于是硬是要去给这个 adapter 塞一个 OnItemClickListener，我觉得这是没有理解 recyclerview 为什么要去掉它。因为对于一个复杂的 item layout 来说，我需要给这个 item layout 上不同的 view 响应不同的点击事件，比如一个 Feed 流中的 Card，有点赞的按钮，有评论的按钮，OnItemClickListener 就完全不够用了，如果你确实只想要 OnItemClickListener 的效果，你就只给最外层的 View 加上点击事件不就行了吗，跟 item layout 上任意一个 view 添加点击事件是没有区别的，OnItemClickListener 没有完全单独存在的必要。
